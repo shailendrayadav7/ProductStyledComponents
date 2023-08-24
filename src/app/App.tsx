@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import ProductPage from '../components/ProductPage/ProductPage';
 import ProductDetailPage from '../pages/ProductDetailPage';
 import '../App.css';
@@ -24,9 +24,11 @@ const App: React.FC = () => {
           </div>
         </nav>
 
-        <Route exact path="/" component={Home} />
-        <Route exact path="/products" component={ProductPage} />
-        <Route path="/products/:productId" component={ProductDetailPage} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<ProductPage />} />
+          <Route path="/products/:productId" element={<ProductDetailPage />} />
+        </Routes>
       </div>
     </Router>
   );
