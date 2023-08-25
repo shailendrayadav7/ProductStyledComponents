@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { useFetchProductByIdQuery } from '@reduxjs/toolkit/query/react';
 
-const apiBaseUrl = 'https://fakestoreapi.com'; 
+const apiBaseUrl = 'https://fakestoreapi.com';
 
 export const productsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: apiBaseUrl }),
@@ -9,10 +8,13 @@ export const productsApi = createApi({
     fetchProducts: builder.query<Product[], void>({
       query: () => 'products',
     }),
+    fetchProductById: builder.query<Product, number>({
+      query: (productId) => `products/${productId}`,
+    }),
   }),
 });
 
-export const { useFetchProductsQuery } = productsApi;
+export const { useFetchProductsQuery, useFetchProductByIdQuery } = productsApi;
 
 export type Product = {
   id: number;
@@ -23,5 +25,3 @@ export type Product = {
 };
 
 export default productsApi;
-
-export { useFetchProductByIdQuery };
