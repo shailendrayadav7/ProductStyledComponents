@@ -1,4 +1,3 @@
-// src/pages/ProductDetailPage.tsx
 import React from 'react';
 import { useParams } from 'react-router-dom'; 
 import { useFetchProductByIdQuery } from '../services/products'; 

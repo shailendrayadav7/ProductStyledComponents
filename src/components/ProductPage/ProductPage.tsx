@@ -1,21 +1,19 @@
-// ProductPage.tsx
-
 import React from 'react';
 import { useFetchProductsQuery } from '../../services/products'; 
+import { Link } from 'react-router-dom';  // Import Link
 import CardComponent from '../CardComponent/CardComponent';
 
 const ProductPage: React.FC = () => {
-  const { data: products, isLoading, isError } = useFetchProductsQuery(); 
+  const { data: products, isLoading, isError } = useFetchProductsQuery();
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>; 
   }
 
   if (isError) {
-    return <div>Error fetching products.</div>;
+    return <div>Error fetching products.</div>; 
   }
 
-  // Add a nullish check for the 'products' variable
   if (!products) {
     return <div>No products available.</div>;
   }
@@ -25,7 +23,9 @@ const ProductPage: React.FC = () => {
       <h1>Product Page</h1>
       <div>
         {products.map((product) => (
-          <CardComponent key={product.id} product={product} />
+          <Link key={product.id} to={`/products/${product.id}`}>
+            <CardComponent product={product} />
+          </Link>
         ))}
       </div>
     </div>

@@ -12,6 +12,7 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 1rem;
 `;
 
 const CardImage = styled.img`
@@ -37,6 +38,7 @@ const CardPrice = styled.p`
 `;
 
 const CardComponent: React.FC<CardComponentProps> = ({ product }) => {
+  console.log('CardComponent is rendering'); // Corrected console log message
   return (
     <CardContainer>
       <CardImage src={product.image} alt={product.title} />
