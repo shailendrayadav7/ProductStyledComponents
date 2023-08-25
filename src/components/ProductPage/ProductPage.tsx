@@ -5,7 +5,9 @@ import { useFetchProductsQuery } from '../../services/products';
 import CardComponent from '../CardComponent/CardComponent';
 
 const ProductPage: React.FC = () => {
+  //console.log('ProductPage component is rendering');
   const { data: products, isLoading, isError } = useFetchProductsQuery(); 
+  console.log('Products:', products);
 
   if (isLoading) {
     return <div>Loading...</div>;

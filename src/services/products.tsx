@@ -15,6 +15,7 @@ export const productsApi = createApi({
 });
 
 export const { useFetchProductsQuery, useFetchProductByIdQuery } = productsApi;
+console.log('productsApi:', productsApi);
 
 export type Product = {
   id: number;

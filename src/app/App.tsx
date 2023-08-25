@@ -47,6 +47,7 @@ import '../App.css';
 
 // Define a simple Home component
 const Home: React.FC = () => {
+  console.log('Home component rendered');
   return <div>Welcome to the Home Page!</div>;
 };
 
@@ -56,8 +57,9 @@ const App: React.FC = () => {
       <nav className="p-4 bg-primary">
         <div className="container mx-auto flex justify-between items-center">
           <Link to="/" className="text-white text-2xl font-semibold">
-            Redux Query App
+            Home
           </Link>
+          <span style={{ margin: '0 1rem' }}>&nbsp;</span>
           <Link to="/products" className="text-white">
             Products
           </Link>
